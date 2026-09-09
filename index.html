@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="pt-BR" id="html-root">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="page-title">Fabio Bove — Product Designer &amp; UX Consultant</title>
+<meta name="description" content="Portfólio de Fabio Bove, Product Designer & UX Consultant com mais de 20 anos de experiência em produtos digitais.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:         #FAFAFA;
+  --surface:    #FFFFFF;
+  --border:     #E2E8F0;
+  --ink:        #0F172A;
+  --ink-soft:   #475569;
+  --ink-faint:  #94A3B8;
+  --ink-muted:  #64748B;
+  --accent:     #2563EB;
+  --header-bg:      #0F172A;
+  --header-border:  rgba(255,255,255,0.08);
+  --header-ink:     #FFFFFF;
+  --header-ink-soft:#94A3B8;
+  --font-display: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-body:    'Inter', system-ui, sans-serif;
+  --max: 1160px;
+  --gutter: clamp(20px, 5vw, 64px);
+  --radius-lg: 16px;
+}
+*, *::before, *::after{ box-sizing: border-box; }
+html{ scroll-behavior: smooth; }
+body{ margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 17px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+img{ max-width: 100%; display: block; }
+a{ color: inherit; }
+h1, h2, h3, h4{ font-family: var(--font-display); letter-spacing: -0.02em; }
+::selection{ background: var(--accent); color: #fff; }
+:focus-visible{ outline: 2px solid var(--accent); outline-offset: 3px; }
+.wrap{ max-width: var(--max); margin: 0 auto; padding-left: var(--gutter); padding-right: var(--gutter); }
+.view{ display: none; }
+.view.is-active{ display: block; }
+.nav{ position: fixed; top: 0; left: 0; right: 0; z-index: 50; background: var(--header-bg); border-bottom: 1px solid var(--header-border); }
+.nav__inner{ display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 16px var(--gutter); max-width: var(--max); margin: 0 auto; }
+.nav__mark{ font-family: var(--font-display); font-weight: 700; letter-spacing: -0.02em; font-size: 1.125rem; text-decoration: none; color: var(--header-ink); flex-shrink: 0; cursor: pointer; background: none; border: none; padding: 0; font: inherit; }
+.case-back{ display: none; align-items: center; gap: 8px; text-decoration: none; color: var(--header-ink-soft); font-size: 0.92rem; font-weight: 500; transition: color .15s ease; }
+.case-back:hover{ color: var(--header-ink); }
+.case-back svg{ width: 16px; height: 16px; }
+body.is-case .case-back{ display: inline-flex; }
+body.is-case .nav__mark{ display: none; }
+.nav__links{ display: flex; align-items: center; gap: 32px; list-style: none; margin: 0; padding: 0; }
+body.is-case .nav__links{ display: none; }
+.nav__links a{ text-decoration: none; font-size: 0.95rem; font-weight: 500; color: var(--header-ink-soft); padding: 6px 0; border-bottom: 1.5px solid transparent; transition: color .15s ease, border-color .15s ease; }
+.nav__links a:hover{ color: var(--header-ink); border-bottom-color: var(--accent); }
+.nav__links a.is-active{ color: var(--accent); font-weight: 600; border-bottom-color: var(--accent); }
+.nav__social{ display: flex; align-items: center; gap: 16px; }
+body.is-case .nav__social{ display: none; }
+.nav__social a{ display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; padding: 4px; color: var(--header-ink-soft); transition: color .15s ease; }
+.nav__social a:hover{ color: var(--header-ink); }
+.nav__social svg{ width: 20px; height: 20px; display: block; }
+.nav__lang{ display: flex; align-items: center; gap: 6px; font-size: 0.85rem; font-weight: 500; }
+.nav__lang button{ background: none; border: none; cursor: pointer; color: var(--header-ink-soft); font-family: var(--font-body); font-weight: 500; font-size: 0.85rem; padding: 4px 6px; }
+.nav__lang button:hover{ color: var(--header-ink); }
+.nav__lang button[aria-current="true"]{ color: #FFFFFF; font-weight: 700; }
+.nav__lang span{ color: #D1D5DB; }
+.nav-spacer{ height: 68px; }
+.hero{ padding: clamp(48px, 8vw, 88px) 0 clamp(40px, 6vw, 72px); margin-bottom: 64px; }
+.hero__grid{ display: grid; grid-template-columns: 1fr 280px; gap: clamp(32px, 6vw, 72px); align-items: start; }
+.hero__title{ font-weight: 700; font-size: clamp(2.2rem, 4.6vw, 3.4rem); line-height: 1.08; margin: 0 0 18px; }
+.hero__subtitle{ font-size: clamp(1.05rem, 1.6vw, 1.2rem); color: var(--ink-soft); max-width: 56ch; margin: 0; }
+.hero__portrait{ display: flex; flex-direction: column; align-items: center; gap: 12px; justify-self: end; }
+.hero__portrait-frame{ width: 280px; height: 280px; max-width: 100%; border-radius: 50%; overflow: hidden; flex-shrink: 0; border: none !important; box-shadow: none !important; }
+.hero__portrait-frame img{ width: 100%; height: 100%; object-fit: cover; display: block; border: none !important; box-shadow: none !important; }
+.hero__portrait-caption{ text-align: center; font-size: 0.78rem; color: var(--ink-faint); line-height: 1.4; }
+.specialties{ padding: clamp(56px, 8vw, 88px) 0 0; border-top: 1px solid var(--border); margin-top: clamp(48px, 7vw, 72px); margin-bottom: 64px; }
+.section-heading{ font-weight: 700; font-size: clamp(1.3rem, 2.2vw, 1.6rem); margin: 0 0 32px; }
+.spec-list{ display: grid; grid-template-columns: repeat(2, 1fr); column-gap: 56px; row-gap: 32px; }
+.spec-item{ max-width: 46ch; }
+.spec-item__label{ display: block; font-weight: 700; font-size: 1.02rem; color: var(--ink); margin-bottom: 8px; }
+.spec-item__body{ margin: 0; color: var(--ink-soft); font-size: 0.96rem; line-height: 1.6; }
+.education{ padding: clamp(48px, 7vw, 72px) 0 0; margin-bottom: 64px; }
+.education__list{ margin: 0; padding: 0; list-style: none; max-width: 60ch; }
+.education__list li{ color: var(--ink-soft); font-size: 1rem; padding: 4px 0; }
+.cases{ padding: clamp(56px, 8vw, 88px) 0; border-top: 1px solid var(--border); margin-top: clamp(48px, 7vw, 72px); margin-bottom: 64px; }
+.nda{ display: flex; align-items: flex-start; gap: 12px; background: #F9FAFB; border: 1px solid #EAECF0; border-radius: 8px; max-width: 680px; padding: 16px 20px; margin: 0 0 36px; }
+.nda svg{ width: 16px; height: 16px; flex-shrink: 0; margin-top: 3px; color: #98A2B3; }
+.nda p{ margin: 0; color: var(--ink-muted); font-size: 0.9rem; line-height: 1.6; }
+.case-grid{ display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; }
+.case-card{ overflow: hidden; border-radius: 16px; background: #FFFFFF; border: 1px solid #E2E8F0; display: flex; flex-direction: column; text-decoration: none; color: var(--ink); transition: border-color .15s ease; position: relative; cursor: pointer; }
+.case-card:hover{ border-color: var(--accent); }
+.case-card img{ width: 100%; height: 220px; object-fit: cover; object-position: center; display: block; }
+.case-card__body{ padding: 20px 22px 24px; }
+.case-card__eyebrow{ font-size: 0.78rem; font-weight: 500; color: var(--accent); display: block; margin-bottom: 8px; }
+.case-card__title{ font-weight: 700; font-size: 1.2rem; margin: 0 0 8px; }
+.case-card__desc{ color: var(--ink-soft); font-size: 0.94rem; margin: 0; }
+.footer{ border-top: 1px solid var(--border); padding: clamp(56px, 8vw, 88px) 0 40px; }
+.footer__heading{ font-weight: 700; font-size: clamp(1.6rem, 3.2vw, 2.2rem); margin: 0 0 28px; }
+.footer__contacts{ display: flex; flex-direction: column; gap: 14px; margin-bottom: 48px; }
+.footer__contact{ display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink-soft); font-size: 1.05rem; width: fit-content; border-bottom: 1px solid transparent; transition: color .15s ease, border-color .15s ease; }
+.footer__contact svg{ width: 20px; height: 20px; flex-shrink: 0; color: var(--ink-faint); transition: color .15s ease; }
+.footer__contact:hover{ color: var(--accent); border-color: var(--accent); }
+.footer__contact:hover svg{ color: var(--accent); }
+.footer__bottom{ padding-top: 24px; border-top: 1px solid var(--border); font-size: 0.85rem; color: var(--ink-faint); }
+.footer__bottom a{ text-decoration: none; color: var(--ink-faint); }
+.footer__bottom a:hover{ color: var(--accent); }
+.case-intro{ padding: calc(68px + clamp(40px, 7vw, 72px)) 0 clamp(28px, 5vw, 48px); background: #FFFFFF; }
+.case-intro__inner{ max-width: 1000px; margin: 0 auto; padding: 0 var(--gutter); }
+.case-intro__eyebrow{ font-size: 0.85rem; font-weight: 600; color: var(--accent); display: block; margin-bottom: 14px; }
+.case-intro__title{ font-weight: 700; font-size: clamp(1.9rem, 4vw, 2.8rem); margin: 0 0 16px; color: var(--ink); }
+.case-intro__desc{ color: var(--ink-soft); max-width: 62ch; font-size: 1.05rem; margin: 0; }
+.case-container{ max-width: 1000px; margin: 0 auto; background: #FFFFFF; }
+.slice{ position: relative; display: block; width: 100%; margin: 0; padding: 0; line-height: 0; font-size: 0; }
+img.case-slice{ width: 100%; max-width: 1000px; height: auto; display: block; margin: 0 auto; image-rendering: -webkit-optimize-contrast; }
+.hotspot{ position: absolute; top: var(--hs-top, 91%); left: var(--hs-left, 20%); width: var(--hs-width, 60%); height: var(--hs-height, 3.5%); display: block; cursor: pointer; z-index: 10; background: transparent !important; background-color: transparent !important; border: none !important; outline: none !important; }
+.case-footer{ border-top: 1px solid var(--border); padding: 48px 0 64px; text-align: center; background: #FFFFFF; }
+.case-footer a{ color: var(--accent); text-decoration: none; font-weight: 500; font-size: 1rem; border-bottom: 1px solid transparent; transition: border-color .15s ease; }
+.case-footer a:hover{ border-color: var(--accent); }
+@media (max-width: 860px){
+  .hero__grid{ grid-template-columns: 1fr; }
+  .hero__portrait{ justify-self: start; flex-direction: row; }
+  .hero__portrait-frame{ width: 120px; height: 120px; }
+  .spec-list{ grid-template-columns: 1fr; }
+  .case-grid{ grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior: auto; }
+  *{ transition: none !important; }
+}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav__inner">
+    <button type="button" class="nav__mark" id="brand-btn">Fabio Bove</button>
+
+    <a href="#cases" class="case-back" id="back-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M15 18l-6-6 6-6"/></svg>
+      <span data-i18n="case.back">Voltar</span>
+    </a>
+
+    <ul class="nav__links">
+      <li><a href="#sobre" data-i18n="nav.about">Sobre</a></li>
+      <li><a href="#cases" data-i18n="nav.work">Cases</a></li>
+      <li><a href="#contato" data-i18n="nav.contact">Contato</a></li>
+    </ul>
+
+    <div class="nav__social">
+      <a href="https://www.behance.net/" target="_blank" rel="noopener" aria-label="Behance">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M0 7.5h9.3v1.7H0V7.5zM24 15.3c0 .4 0 .7-.1 1H16c.1 1.4 1.2 2.2 2.7 2.2 1.1 0 1.9-.5 2.4-1.4l1.9 1.2c-.9 1.6-2.6 2.5-4.4 2.5-3.2 0-5.5-2.2-5.5-5.6 0-3.2 2.2-5.6 5.4-5.6 3.2 0 5.5 2.3 5.5 5.7zm-2.9-1.4c-.2-1.2-1.1-2-2.5-2-1.3 0-2.2.7-2.5 2h5zM10.9 15c0 2.3-1.7 3.7-4.3 3.7H0V6.6h6.2c2.4 0 4 1.3 4 3.4 0 1.2-.6 2.2-1.7 2.7 1.5.5 2.4 1.6 2.4 2.3zM2.6 8.7v3h3.1c1.1 0 1.8-.6 1.8-1.5s-.7-1.5-1.8-1.5H2.6zm5.6 5.9c0-1-.8-1.6-2-1.6H2.6v3.2h3.6c1.2 0 2-.6 2-1.6z"/></svg>
+      </a>
+      <a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 0 0 2 3.5v17A1.5 1.5 0 0 0 3.5 22h17a1.5 1.5 0 0 0 1.5-1.5v-17A1.5 1.5 0 0 0 20.5 2zM8.3 18.5H5.6V9.9h2.7v8.6zM7 8.7a1.6 1.6 0 1 1 0-3.1 1.6 1.6 0 0 1 0 3.1zm11.5 9.8h-2.7v-4.5c0-1.1 0-2.4-1.5-2.4s-1.7 1.1-1.7 2.3v4.6H9.9V9.9h2.6v1.2h.1c.4-.7 1.3-1.5 2.7-1.5 2.9 0 3.4 1.9 3.4 4.3v4.6z"/></svg>
+      </a>
+    </div>
+
+    <div class="nav__lang">
+      <button type="button" data-lang-btn="pt">PT</button>
+      <span>|</span>
+      <button type="button" data-lang-btn="en">EN</button>
+    </div>
+  </div>
+</header>
+
+<div class="nav-spacer"></div>
+
+<main id="app">
+  <section id="view-home" class="view is-active">
+    <section id="sobre" class="hero">
+      <div class="wrap hero__grid">
+        <div>
+          <h1 class="hero__title" data-i18n="hero.title">Olá, eu sou Fabio Bove.</h1>
+          <p class="hero__subtitle" data-i18n="hero.subtitle">Designer de Produto e Consultor de UX com mais de 20 anos de experiência em desenvolvimento de produtos digitais da descoberta à entrega.</p>
+        </div>
+        <div class="hero__portrait">
+          <div class="hero__portrait-frame">
+            <img id="portrait-img" src="images/foto-perfil.jpg" alt="Fabio Bove">
+          </div>
+          <div class="hero__portrait-caption">
+            <div data-i18n="hero.portrait.caption.role">Product Designer</div>
+            <div data-i18n="hero.portrait.caption.base">São Paulo, BR</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="wrap specialties">
+        <h2 class="section-heading" data-i18n="specialties.heading">Especialidades e Destaques</h2>
+        <div class="spec-list">
+          <div class="spec-item">
+            <span class="spec-item__label" data-i18n="specialties.1.label">UX &amp; UI Design</span>
+            <p class="spec-item__body" data-i18n="specialties.1.body">Mapeamento de jornada do usuário, arquitetura da informação, prototipagem avançada no Figma e facilitação de testes de usabilidade.</p>
+          </div>
+          <div class="spec-item">
+            <span class="spec-item__label" data-i18n="specialties.2.label">Sistemas de Design e Escalabilidade</span>
+            <p class="spec-item__body" data-i18n="specialties.2.body">Criação e gestão de bibliotecas de componentes escaláveis, acessibilidade (WCAG) e transferência eficiente para a equipe de engenharia.</p>
+          </div>
+          <div class="spec-item">
+            <span class="spec-item__label" data-i18n="specialties.3.label">IA no Fluxo de Trabalho</span>
+            <p class="spec-item__body" data-i18n="specialties.3.body">Uso diário de LLMs e ferramentas no-code para acelerar a pesquisa, a ideação e o desenvolvimento de MVPs.</p>
+          </div>
+          <div class="spec-item">
+            <span class="spec-item__label" data-i18n="specialties.4.label">Conhecimento Especializado em Finanças/Bancos</span>
+            <p class="spec-item__body" data-i18n="specialties.4.body">Ampla experiência no setor bancário (aplicativos, Internet Banking, B2B/B2C).</p>
+          </div>
+          <div class="spec-item">
+            <span class="spec-item__label" data-i18n="specialties.5.label">Entrega Colaborativa</span>
+            <p class="spec-item__body" data-i18n="specialties.5.body">Integrado em equipes multifuncionais focadas em métricas e valor para o negócio.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="wrap education">
+        <h2 class="section-heading" data-i18n="education.heading">Formação</h2>
+        <ul class="education__list">
+          <li data-i18n="education.1">Bacharelado em Publicidade e Marketing</li>
+          <li data-i18n="education.2">Especializações em Pesquisa de UX, Sistemas de Design e IA aplicada ao Design</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="cases" class="cases">
+      <div class="wrap">
+        <h2 class="section-heading" data-i18n="work.heading">Cases de Destaque</h2>
+        <div class="nda">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="11" width="14" height="9" rx="1.5"/><path d="M8 11V7.5a4 4 0 0 1 8 0V11"/></svg>
+          <p data-i18n="nda.text">Devido a acordos de confidencialidade com importantes instituições financeiras e parceiros corporativos, alguns dos meus estudos de caso mais recentes não podem ser divulgados publicamente. Entre em contato para agendar uma conversa privada.</p>
+        </div>
+        <div class="case-grid">
+          <a href="#hbo-go" class="case-card" data-route="hbo-go">
+            <img src="images/capa-HBO.png" alt="HBO GO">
+            <div class="case-card__body">
+              <span class="case-card__eyebrow" data-i18n="case.hbo.tag">Streaming / Entertainment</span>
+              <h3 class="case-card__title" data-i18n="case.hbo.title">HBO GO</h3>
+              <p class="case-card__desc" data-i18n="case.hbo.desc">Pesquisa, benchmarking e testes de usabilidade para evoluir a experiência de streaming.</p>
+            </div>
+          </a>
+          <a href="#dolce-gusto" class="case-card" data-route="dolce-gusto">
+            <img src="images/capa-Dolce-Gusto.png" alt="Dolce Gusto">
+            <div class="case-card__body">
+              <span class="case-card__eyebrow" data-i18n="case.dolcegusto.tag">E-commerce / CPG</span>
+              <h3 class="case-card__title" data-i18n="case.dolcegusto.title">Dolce Gusto</h3>
+              <p class="case-card__desc" data-i18n="case.dolcegusto.desc">Redesenho da jornada de compra para reduzir fricção no e-commerce.</p>
+            </div>
+          </a>
+          <a href="#hurb" class="case-card" data-route="hurb">
+            <img src="images/capa-HURB.png" alt="HURB">
+            <div class="case-card__body">
+              <span class="case-card__eyebrow" data-i18n="case.hurb.tag">Travel / Hospitality</span>
+              <h3 class="case-card__title" data-i18n="case.hurb.title">HURB</h3>
+              <p class="case-card__desc" data-i18n="case.hurb.desc">Redesenho da jornada de reservas para reduzir fricção e aumentar a confiança do usuário.</p>
+            </div>
+          </a>
+          <a href="#nubank" class="case-card" data-route="nubank">
+            <img src="images/Capa-Nubank.png" alt="Nubank — Central de Ajuda">
+            <div class="case-card__body">
+              <span class="case-card__eyebrow" data-i18n="case.nubank.tag">Fintech / Banking</span>
+              <h3 class="case-card__title" data-i18n="case.nubank.title">Nubank</h3>
+              <p class="case-card__desc" data-i18n="case.nubank.desc">Central de Ajuda: redesenho do fluxo de suporte dentro do app.</p>
+            </div>
+          </a>
+        </div>
+      </div>
+      <footer class="footer" id="contato">
+    <div class="wrap">
+      <h2 class="footer__heading" data-i18n="footer.heading">Vamos nos conectar</h2>
+      <div class="footer__contacts">
+        <a class="footer__contact" href="mailto:fabiobove78@gmail.com">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+          <span data-i18n="footer.email.label">fabiobove78@gmail.com</span>
+        </a>
+        <a class="footer__contact" href="https://wa.me/5511985516079" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.5 11.9a8.4 8.4 0 1 1-3.6-6.9"/><path d="M20.5 3.5l-1.3 4.3-4.3 1.3 4.3 1.3z" fill="currentColor" stroke="none"/><path d="M8.5 9.5c.2 2.6 2.4 4.8 5 5"/></svg>
+          <span data-i18n="footer.phone.label">+55 11 98551-6079</span>
+        </a>
+        <a class="footer__contact" href="https://www.linkedin.com/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 0 0 2 3.5v17A1.5 1.5 0 0 0 3.5 22h17a1.5 1.5 0 0 0 1.5-1.5v-17A1.5 1.5 0 0 0 20.5 2zM8.3 18.5H5.6V9.9h2.7v8.6zM7 8.7a1.6 1.6 0 1 1 0-3.1 1.6 1.6 0 0 1 0 3.1zm11.5 9.8h-2.7v-4.5c0-1.1 0-2.4-1.5-2.4s-1.7 1.1-1.7 2.3v4.6H9.9V9.9h2.6v1.2h.1c.4-.7 1.3-1.5 2.7-1.5 2.9 0 3.4 1.9 3.4 4.3v4.6z"/></svg>
+          <span data-i18n="footer.linkedin.label">LinkedIn</span>
+        </a>
+      </div>
+      <div class="footer__bottom">
+        <span>Fabio Bove — © 2026. <span data-i18n="footer.rights">Todos os direitos reservados.</span></span>
+      </div>
+    </div>
+  </footer>
+    </section>
+  </section>
+
+  
+
+  <section id="view-nubank" class="view">
+    <section class="case-intro">
+      <div class="case-intro__inner">
+        <span class="case-intro__eyebrow" data-i18n="case1.page.eyebrow">Case de produto</span>
+        <h1 class="case-intro__title" data-i18n="case1.page.title">Nubank</h1>
+        <p class="case-intro__desc" data-i18n="case1.page.desc"></p>
+      </div>
+    </section>
+
+    <div class="case-container">
+    <div class="slice">
+      <img class="case-slice" data-src-pt="https://i.ibb.co/MxQrzqbw/Portfolio-UX-Nubank-01.png" data-src-en="https://i.ibb.co/qFWNsMWG/1.png" src="https://i.ibb.co/MxQrzqbw/Portfolio-UX-Nubank-01.png" alt="Nubank, fatia 1">
+    </div>
+    <div class="slice">
+      <img class="case-slice" data-src-pt="https://i.ibb.co/SwbhFzR6/Portfolio-UX-Nubank-02.png" data-src-en="https://i.ibb.co/PX2NHVy/2.png" src="https://i.ibb.co/SwbhFzR6/Portfolio-UX-Nubank-02.png" alt="Nubank, fatia 2">
+    </div>
+    <div class="slice">
+      <img class="case-slice" data-src-pt="https://i.ibb.co/VW82RRzg/Portfolio-UX-Nubank-03.png" data-src-en="https://i.ibb.co/DDN7K5RR/3.png" src="https://i.ibb.co/VW82RRzg/Portfolio-UX-Nubank-03.png" alt="Nubank, fatia 3">
+    </div>
+    <div class="slice">
+      <img class="case-slice" data-src-pt="https://i.ibb.co/DfPV0cxd/Portfolio-UX-Nubank-04.png" data-src-en="https://i.ibb.co/CKrPqmpM/4.png" src="https://i.ibb.co/DfPV0cxd/Portfolio-UX-Nubank-04.png" alt="Nubank, fatia 4">
+    </div>
+    <div class="slice">
+      <img class="case-slice" data-src-pt="https://i.ibb.co/m5mnKY5v/Portfolio-UX-Nubank-05.png" data-src-en="https://i.ibb.co/YBdFRV5L/5.png" src="https://i.ibb.co/m5mnKY5v/Portfolio-UX-Nubank-05.png" alt="Nubank, fatia 5">
+    </div>
+    <div class="slice">
+      <img class="case-slice" data-src-pt="https://i.ibb.co/fVk1vf96/Portfolio-UX-Nubank-06.png" data-src-en="https://i.ibb.co/XxQWyjcK/6.png" src="https://i.ibb.co/fVk1vf96/Portfolio-UX-Nubank-06.png" alt="Nubank, fatia 6">
+    </div>
+    <div class="slice">
+      <img class="case-slice" data-src-pt="https://i.ibb.co/fY2Q250J/Portfolio-UX-Nubank-07.png" data-src-en="https://i.ibb.co/fzyXgNC0/7.png" src="https://i.ibb.co/fY2Q250J/Portfolio-UX-Nubank-07.png" alt="Nubank, fatia 7">
+    </div>
+    <div class="slice">
+      <img class="case-slice" data-src-pt="https://i.ibb.co/5XTR2T6j/Portfolio-UX-Nubank-08.png" data-src-en="https://i.ibb.co/ZzHrgwrT/8.png" src="https://i.ibb.co/5XTR2T6j/Portfolio-UX-Nubank-08.png" alt="Nubank, fatia 8">
+      <a class="hotspot" href="https://xd.adobe.com/view/795ba8d1-d3fe-4228-8686-3a557b6f6fbb-1a52/?fullscreen" target="_blank" rel="noopener noreferrer" aria-label="Abrir link externo" style="--hs-top: 78%; --hs-left: 2.5%; --hs-width: 95%; --hs-height: 5%;"></a>
+    </div>
+    <div class="slice">
+      <img class="case-slice" data-src-pt="https://i.ibb.co/BK61Zkgt/Portfolio-UX-Nubank-09.png" data-src-en="https://i.ibb.co/Rkddmsc3/9.png" src="https://i.ibb.co/BK61Zkgt/Portfolio-UX-Nubank-09.png" alt="Nubank, fatia 9">
+      <a class="hotspot" href="https://cactus-magnesium-e6d.notion.site/Projeto-1-3-Nubank-8f5b8fb7bce44bf09bc4cfdb76fdd43f" target="_blank" rel="noopener noreferrer" aria-label="Abrir link externo" style="--hs-top: 81%; --hs-left: 2.5%; --hs-width: 95%; --hs-height: 5%;"></a>
+    </div>
+    </div>
+
+    <div class="case-footer">
+      <a href="mailto:fabiobove78@gmail.com" data-i18n="case.footer.cta">Vamos conversar sobre este projeto</a>
+    </div>
+  </section>
+
+  <section id="view-hurb" class="view">
+    <section class="case-intro">
+      <div class="case-intro__inner">
+        <span class="case-intro__eyebrow" data-i18n="hurb.page.eyebrow">Case de produto</span>
+        <h1 class="case-intro__title" data-i18n="hurb.page.title">HURB</h1>
+        <p class="case-intro__desc" data-i18n="hurb.page.desc"></p>
+      </div>
+    </section>
+
+    <div class="case-container">
+    <div class="slice">
+      <img class="case-slice" data-src-pt="https://i.ibb.co/tM14DSZB/Portfolio-UX-HURB-01.png" data-src-en="https://i.ibb.co/BHL0Y6Tq/1.png" src="https://i.ibb.co/tM14DSZB/Portfolio-UX-HURB-01.png" alt="HURB, fatia 1">
+    </div>
+    <div class="slice">
+      <img class="case-slice" data-src-pt="https://i.ibb.co/Ldhr5hM4/Portfolio-UX-HURB-02.png" data-src-en="https://i.ibb.co/j91PgKs6/2.png" src="https://i.ibb.co/Ldhr5hM4/Portfolio-UX-HURB-02.png" alt="HURB, fatia 2">
+    </div>
+    <div class="slice">
+      <img class="case-slice" data-src-pt="https://i.ibb.co/1f0ck5Xv/Portfolio-UX-HURB-03.png" data-src-en="https://i.ibb.co/XfNYT3c0/3.png" src="https://i.ibb.co/1f0ck5Xv/Portfolio-UX-HURB-03.png" alt="HURB, fatia 3">
+    </div>
+    <div class="slice">
+      <img class="case-slice" data-src-pt="https://i.ibb.co/6RW8L3Jb/Portfolio-UX-HURB-04.png" data-src-en="https://i.ibb.co/zWMcL8G9/4.png" src="https://i.ibb.co/6RW8L3Jb/Portfolio-UX-HURB-04.png" alt="HURB, fatia 4">
+    </div>
+    <div class="slice">
+      <img class="case-slice" data-src-pt="https://i.ibb.co/ycyNYDhP/Portfolio-UX-HURB-05.png" data-src-en="https://i.ibb.co/xK79F5B4/5.png" src="https://i.ibb.co/ycyNYDhP/Portfolio-UX-HURB-05.png" alt="HURB, fatia 5">
+    </div>
+    <div class="slice">
+      <img class="case-slice" data-src-pt="https://i.ibb.co/R5w4N1W/Portfolio-UX-HURB-06.png" data-src-en="https://i.ibb.co/Ps4F5BZW/6.png" src="https://i.ibb.co/R5w4N1W/Portfolio-UX-HURB-06.png" alt="HURB, fatia 6">
+    </div>
+    <div class="slice">
+      <img class="case-slice" data-src-pt="https://i.ibb.co/7tqnt4sb/Portfolio-UX-HURB-07.png" data-src-en="https://i.ibb.co/TMLvNK8N/7.png" src="https://i.ibb.co/7tqnt4sb/Portfolio-UX-HURB-07.png" alt="HURB, fatia 7">
+    </div>
+    <div class="slice">
+      <img class="case-slice" data-src-pt="https://i.ibb.co/XfnTfY0P/Portfolio-UX-HURB-08.png" data-src-en="https://i.ibb.co/8Lphy69j/8.png" src="https://i.ibb.co/XfnTfY0P/Portfolio-UX-HURB-08.png" alt="HURB, fatia 8">
+    </div>
+    <div class="slice">
+      <img class="case-slice" data-src-pt="https://i.ibb.co/JW03PK8N/Portfolio-UX-HURB-09.png" data-src-en="https://i.ibb.co/0j8Dkxgr/9.png" src="https://i.ibb.co/JW03PK8N/Portfolio-UX-HURB-09.png" alt="HURB, fatia 9">
+      <a class="hotspot" href="https://xd.adobe.com/view/a26bf776-aa5a-4823-94b9-402ac3ba2f26-f738/?fullscreen" target="_blank" rel="noopener noreferrer" aria-label="Abrir link externo" style="--hs-top: 86%; --hs-left: 7%; --hs-width: 60%; --hs-height: 3.5%;"></a>
+    </div>
+    <div class="slice">
+      <img class="case-slice" data-src-pt="https://i.ibb.co/60N2rkDc/Portfolio-UX-HURB-10.png" data-src-en="https://i.ibb.co/tTPPtNxY/10.png" src="https://i.ibb.co/60N2rkDc/Portfolio-UX-HURB-10.png" alt="HURB, fatia 10">
+      <a class="hotspot" href="https://cactus-magnesium-e6d.notion.site/Projeto-3-HURB-721ed756570c49159dcfb11f3d8eb29d" target="_blank" rel="noopener noreferrer" aria-label="Abrir link externo" style="--hs-top: 93.5%; --hs-left: 2.5%; --hs-width: 95%; --hs-height: 2.5%;"></a>
+    </div>
+    </div>
+
+    <div class="case-footer">
+      <a href="mailto:fabiobove78@gmail.com" data-i18n="case.footer.cta">Vamos conversar sobre este projeto</a>
+    </div>
+  </section>
+
+  <section id="view-dolce-gusto" class="view">
+    <section class="case-intro">
+      <div class="case-intro__inner">
+        <span class="case-intro__eyebrow" data-i18n="dolcegusto.page.eyebrow">Case de produto</span>
+        <h1 class="case-intro__title" data-i18n="dolcegusto.page.title">Dolce Gusto</h1>
+        <p class="case-intro__desc" data-i18n="dolcegusto.page.desc"></p>
+      </div>
+    </section>
+
+    <div class="case-container">
+    <div class="slice">
+      <img class="case-slice" data-src-pt="https://i.ibb.co/fVyZSH0T/Portfolio-UX-Dolce-Gusto-01.png" data-src-en="https://i.ibb.co/yFz5mrFB/1.png" src="https://i.ibb.co/fVyZSH0T/Portfolio-UX-Dolce-Gusto-01.png" alt="Dolce Gusto, fatia 1">
+      <a class="hotspot" href="https://cactus-magnesium-e6d.notion.site/Projeto-1-2-Dolce-Gusto-af0052fa6b16426ca3f52a6bc0d3d133" target="_blank" rel="noopener noreferrer" aria-label="Abrir link externo" style="--hs-top: 92.5%; --hs-left: 2.5%; --hs-width: 95%; --hs-height: 3.5%;"></a>
+    </div>
+    <div class="slice">
+      <img class="case-slice" data-src-pt="https://i.ibb.co/qYvqrqXg/Portfolio-UX-Dolce-Gusto-02.png" data-src-en="https://i.ibb.co/d4gQFxQq/2.png" src="https://i.ibb.co/qYvqrqXg/Portfolio-UX-Dolce-Gusto-02.png" alt="Dolce Gusto, fatia 2">
+    </div>
+    <div class="slice">
+      <img class="case-slice" data-src-pt="https://i.ibb.co/35Pt1W30/Portfolio-UX-Dolce-Gusto-03.png" data-src-en="https://i.ibb.co/GvPGx4Xd/3.png" src="https://i.ibb.co/35Pt1W30/Portfolio-UX-Dolce-Gusto-03.png" alt="Dolce Gusto, fatia 3">
+    </div>
+    <div class="slice">
+      <img class="case-slice" data-src-pt="https://i.ibb.co/5WkNh0vZ/Portfolio-UX-Dolce-Gusto-04.png" data-src-en="https://i.ibb.co/ZPmrqvy/4.png" src="https://i.ibb.co/5WkNh0vZ/Portfolio-UX-Dolce-Gusto-04.png" alt="Dolce Gusto, fatia 4">
+    </div>
+    <div class="slice">
+      <img class="case-slice" data-src-pt="https://i.ibb.co/5XnctxJr/Portfolio-UX-Dolce-Gusto-05.png" data-src-en="https://i.ibb.co/8gNQRdz5/5.png" src="https://i.ibb.co/5XnctxJr/Portfolio-UX-Dolce-Gusto-05.png" alt="Dolce Gusto, fatia 5">
+    </div>
+    <div class="slice">
+      <img class="case-slice" data-src-pt="https://i.ibb.co/0jmn88jd/Portfolio-UX-Dolce-Gusto-06.png" data-src-en="https://i.ibb.co/p684Mm2b/6.png" src="https://i.ibb.co/0jmn88jd/Portfolio-UX-Dolce-Gusto-06.png" alt="Dolce Gusto, fatia 6">
+      <a class="hotspot" href="https://www.notion.so/Moodboard-4d89dee4c285424ea3636375147875a3#a76b54eaf23749fbb0787acc25980875" target="_blank" rel="noopener noreferrer" aria-label="Abrir link externo" style="--hs-top: 89%; --hs-left: 2.5%; --hs-width: 95%; --hs-height: 3.5%;"></a>
+    </div>
+    <div class="slice">
+      <img class="case-slice" data-src-pt="https://i.ibb.co/TMgD3Zsj/Portfolio-UX-Dolce-Gusto-07.png" data-src-en="https://i.ibb.co/Q4j80Cr/7.png" src="https://i.ibb.co/TMgD3Zsj/Portfolio-UX-Dolce-Gusto-07.png" alt="Dolce Gusto, fatia 7">
+    </div>
+    <div class="slice">
+      <img class="case-slice" data-src-pt="https://i.ibb.co/Ng3C1n3d/Portfolio-UX-Dolce-Gusto-08.png" data-src-en="https://i.ibb.co/p67HzrJ6/8.png" src="https://i.ibb.co/Ng3C1n3d/Portfolio-UX-Dolce-Gusto-08.png" alt="Dolce Gusto, fatia 8">
+      <a class="hotspot" href="https://xd.adobe.com/view/c03d1b82-3f2d-4e45-a1d0-5f396e65ec28-956e/?fullscreen" target="_blank" rel="noopener noreferrer" aria-label="Abrir link externo" style="--hs-top: 96%; --hs-left: 2.5%; --hs-width: 95%; --hs-height: 4%;"></a>
+    </div>
+    <div class="slice">
+      <img class="case-slice" data-src-pt="https://i.ibb.co/XZ5kWyLk/Portfolio-UX-Dolce-Gusto-09.png" data-src-en="https://i.ibb.co/1JLhHVC2/9.png" src="https://i.ibb.co/XZ5kWyLk/Portfolio-UX-Dolce-Gusto-09.png" alt="Dolce Gusto, fatia 9">
+    </div>
+    </div>
+
+    <div class="case-footer">
+      <a href="mailto:fabiobove78@gmail.com" data-i18n="case.footer.cta">Vamos conversar sobre este projeto</a>
+    </div>
+  </section>
+
+  <section id="view-hbo-go" class="view">
+    <section class="case-intro">
+      <div class="case-intro__inner">
+        <span class="case-intro__eyebrow" data-i18n="hbo.page.eyebrow">Case de produto</span>
+        <h1 class="case-intro__title" data-i18n="hbo.page.title">HBO GO</h1>
+        <p class="case-intro__desc" data-i18n="hbo.page.desc"></p>
+      </div>
+    </section>
+
+    <div class="case-container">
+    <div class="slice">
+      <img class="case-slice" data-src-pt="https://i.ibb.co/fR41Nxt/Portfolio-UX-HBO-01.png" data-src-en="https://i.ibb.co/nNgVH692/1.png" src="https://i.ibb.co/fR41Nxt/Portfolio-UX-HBO-01.png" alt="HBO GO, fatia 1">
+    </div>
+    <div class="slice">
+      <img class="case-slice" data-src-pt="https://i.ibb.co/0Vjw0RCt/Portfolio-UX-HBO-02.png" data-src-en="https://i.ibb.co/9SGZC1H/2.png" src="https://i.ibb.co/0Vjw0RCt/Portfolio-UX-HBO-02.png" alt="HBO GO, fatia 2">
+    </div>
+    <div class="slice">
+      <img class="case-slice" data-src-pt="https://i.ibb.co/sJ3gmRvL/Portfolio-UX-HBO-03.png" data-src-en="https://i.ibb.co/q3Yy1v4r/3.png" src="https://i.ibb.co/sJ3gmRvL/Portfolio-UX-HBO-03.png" alt="HBO GO, fatia 3">
+    </div>
+    <div class="slice">
+      <img class="case-slice" data-src-pt="https://i.ibb.co/YTyxk0xs/Portfolio-UX-HBO-04.png" data-src-en="https://i.ibb.co/qLNd2N4n/4.png" src="https://i.ibb.co/YTyxk0xs/Portfolio-UX-HBO-04.png" alt="HBO GO, fatia 4">
+    </div>
+    <div class="slice">
+      <img class="case-slice" data-src-pt="https://i.ibb.co/Y4V6Zvnb/Portfolio-UX-HBO-05.png" data-src-en="https://i.ibb.co/zVKHg93B/5.png" src="https://i.ibb.co/Y4V6Zvnb/Portfolio-UX-HBO-05.png" alt="HBO GO, fatia 5">
+      <a class="hotspot" href="https://cactus-magnesium-e6d.notion.site/Benchmarking-9c7ac3f1b13c4e6691bf49360446ab4f" target="_blank" rel="noopener noreferrer" aria-label="Abrir link externo" style="--hs-top: 87%; --hs-left: 2.5%; --hs-width: 95%; --hs-height: 5%;"></a>
+    </div>
+    <div class="slice">
+      <img class="case-slice" data-src-pt="https://i.ibb.co/sJs7Skvq/Portfolio-UX-HBO-06.png" data-src-en="https://i.ibb.co/spzs9658/6.png" src="https://i.ibb.co/sJs7Skvq/Portfolio-UX-HBO-06.png" alt="HBO GO, fatia 6">
+      <a class="hotspot" href="https://docs.google.com/forms/d/18Ho4beXaIrdkRM2Zdz6EhVifZ3TyfbVCKLLu62jAxoE/viewform?edit_requested=true" target="_blank" rel="noopener noreferrer" aria-label="Abrir link externo" style="--hs-top: 86%; --hs-left: 2.5%; --hs-width: 95%; --hs-height: 5%;"></a>
+    </div>
+    <div class="slice">
+      <img class="case-slice" data-src-pt="https://i.ibb.co/kVQJzDv0/Portfolio-UX-HBO-07.png" data-src-en="https://i.ibb.co/GQ0c5KR0/7.png" src="https://i.ibb.co/kVQJzDv0/Portfolio-UX-HBO-07.png" alt="HBO GO, fatia 7">
+    </div>
+    <div class="slice">
+      <img class="case-slice" data-src-pt="https://i.ibb.co/7Jq1124y/Portfolio-UX-HBO-08.png" data-src-en="https://i.ibb.co/tMPBfDHj/8.png" src="https://i.ibb.co/7Jq1124y/Portfolio-UX-HBO-08.png" alt="HBO GO, fatia 8">
+      <a class="hotspot" href="https://docs.google.com/forms/d/18Ho4beXaIrdkRM2Zdz6EhVifZ3TyfbVCKLLu62jAxoE/viewform?edit_requested=true" target="_blank" rel="noopener noreferrer" aria-label="Abrir link externo" style="--hs-top: 87%; --hs-left: 2.5%; --hs-width: 95%; --hs-height: 5%;"></a>
+    </div>
+    <div class="slice">
+      <img class="case-slice" data-src-pt="https://i.ibb.co/tPwhT7bt/Portfolio-UX-HBO-09.png" data-src-en="https://i.ibb.co/dJrBmzT7/9.png" src="https://i.ibb.co/tPwhT7bt/Portfolio-UX-HBO-09.png" alt="HBO GO, fatia 9">
+    </div>
+    <div class="slice">
+      <img class="case-slice" data-src-pt="https://i.ibb.co/KxdDP6Fs/Portfolio-UX-HBO-10.png" data-src-en="https://i.ibb.co/DHXPHQ12/10.png" src="https://i.ibb.co/KxdDP6Fs/Portfolio-UX-HBO-10.png" alt="HBO GO, fatia 10">
+    </div>
+    <div class="slice">
+      <img class="case-slice" data-src-pt="https://i.ibb.co/dsP0fvw0/Portfolio-UX-HBO-11.png" data-src-en="https://i.ibb.co/cK3yq87m/11.png" src="https://i.ibb.co/dsP0fvw0/Portfolio-UX-HBO-11.png" alt="HBO GO, fatia 11">
+    </div>
+    <div class="slice">
+      <img class="case-slice" data-src-pt="https://i.ibb.co/vxTFH2Nc/Portfolio-UX-HBO-12.png" data-src-en="https://i.ibb.co/rGgGh2SD/12.png" src="https://i.ibb.co/vxTFH2Nc/Portfolio-UX-HBO-12.png" alt="HBO GO, fatia 12">
+    </div>
+    <div class="slice">
+      <img class="case-slice" data-src-pt="https://i.ibb.co/F4kcSvcw/Portfolio-UX-HBO-13.png" data-src-en="https://i.ibb.co/d0snmnZ3/13.png" src="https://i.ibb.co/F4kcSvcw/Portfolio-UX-HBO-13.png" alt="HBO GO, fatia 13">
+    </div>
+    <div class="slice">
+      <img class="case-slice" data-src-pt="https://i.ibb.co/tPY8BbYV/Portfolio-UX-HBO-14.png" data-src-en="https://i.ibb.co/RT6987W1/14.png" src="https://i.ibb.co/tPY8BbYV/Portfolio-UX-HBO-14.png" alt="HBO GO, fatia 14">
+    </div>
+    <div class="slice">
+      <img class="case-slice" data-src-pt="https://i.ibb.co/BHLbS5R6/Portfolio-UX-HBO-15.png" data-src-en="https://i.ibb.co/KjhQ5KSW/15.png" src="https://i.ibb.co/BHLbS5R6/Portfolio-UX-HBO-15.png" alt="HBO GO, fatia 15">
+    </div>
+    <div class="slice">
+      <img class="case-slice" data-src-pt="https://i.ibb.co/dwVs05WT/Portfolio-UX-HBO-16.png" data-src-en="https://i.ibb.co/1GRWbY7B/16.png" src="https://i.ibb.co/dwVs05WT/Portfolio-UX-HBO-16.png" alt="HBO GO, fatia 16">
+    </div>
+    <div class="slice">
+      <img class="case-slice" data-src-pt="https://i.ibb.co/9HDr3346/Portfolio-UX-HBO-17.png" data-src-en="https://i.ibb.co/v64cHm9s/17.png" src="https://i.ibb.co/9HDr3346/Portfolio-UX-HBO-17.png" alt="HBO GO, fatia 17">
+      <a class="hotspot" href="https://xd.adobe.com/view/01365a1a-7763-4463-9be2-d9cfa1f103e-5465/?fullscreen&hints=off" target="_blank" rel="noopener noreferrer" aria-label="Abrir link externo" style="--hs-top: 80%; --hs-left: 2.5%; --hs-width: 95%; --hs-height: 5%;"></a>
+    </div>
+
+    <div class="slice">
+      <img class="case-slice" data-src-pt="https://i.ibb.co/zW4DN6mT/Portfolio-UX-HBO-18.png" data-src-en="https://i.ibb.co/Fb8fhCvC/18.png" src="https://i.ibb.co/zW4DN6mT/Portfolio-UX-HBO-18.png" alt="HBO GO, fatia 18">
+      <a class="hotspot" href="https://cactus-magnesium-e6d.notion.site/Testes-de-Usabilidade-a7da06807d4b418b9e573a3112344125" target="_blank" rel="noopener noreferrer" aria-label="Abrir link externo" style="--hs-top: 84%; --hs-left: 2.5%; --hs-width: 95%; --hs-height: 5%;"></a>
+    </div>
+
+    <div class="slice">
+      <img class="case-slice" data-src-pt="https://i.ibb.co/fVRFYq9C/Portfolio-UX-HBO-19.png" data-src-en="https://i.ibb.co/PsF8TQcX/19.png" src="https://i.ibb.co/fVRFYq9C/Portfolio-UX-HBO-19.png" alt="HBO GO, fatia 19">
+      <a class="hotspot" href="https://cactus-magnesium-e6d.notion.site/Projeto-2-HBO-GO-7e854786435f4842bdce23abd370b761" target="_blank" rel="noopener noreferrer" aria-label="Abrir link externo" style="--hs-top: 80%; --hs-left: 2.5%; --hs-width: 95%; --hs-height: 5%;"></a>
+    </div>
+    </div>
+
+    <div class="case-footer">
+      <a href="mailto:fabiobove78@gmail.com" data-i18n="case.footer.cta">Vamos conversar sobre este projeto</a>
+    </div>
+  </section>
+</main>
+
+<script>
+(function () {
+  const STORAGE_KEY = "pref_lang";
+  const CASE_ROUTES = ["nubank", "hurb", "dolce-gusto", "hbo-go"];
+
+  const TRANSLATIONS = {
+    pt: {
+      "meta.title": "Fabio Bove — Product Designer & UX Consultant",
+      "nav.about": "Sobre", "nav.work": "Cases", "nav.contact": "Contato",
+      "hero.title": "Olá, eu sou Fabio Bove.",
+      "hero.subtitle": "Designer de Produto e Consultor de UX com mais de 20 anos de experiência em desenvolvimento de produtos digitais da descoberta à entrega.",
+      "hero.portrait.caption.role": "Product Designer",
+      "hero.portrait.caption.base": "São Paulo, BR",
+      "specialties.heading": "Especialidades e Destaques",
+      "specialties.1.label": "UX & UI Design",
+      "specialties.1.body": "Mapeamento de jornada do usuário, arquitetura da informação, prototipagem avançada no Figma e facilitação de testes de usabilidade.",
+      "specialties.2.label": "Sistemas de Design e Escalabilidade",
+      "specialties.2.body": "Criação e gestão de bibliotecas de componentes escaláveis, acessibilidade (WCAG) e transferência eficiente para a equipe de engenharia.",
+      "specialties.3.label": "IA no Fluxo de Trabalho",
+      "specialties.3.body": "Uso diário de LLMs e ferramentas no-code para acelerar a pesquisa, a ideação e o desenvolvimento de MVPs.",
+      "specialties.4.label": "Conhecimento Especializado em Finanças/Bancos",
+      "specialties.4.body": "Ampla experiência no setor bancário (aplicativos, Internet Banking, B2B/B2C).",
+      "specialties.5.label": "Entrega Colaborativa",
+      "specialties.5.body": "Integrado em equipes multifuncionais focadas em métricas e valor para o negócio.",
+      "education.heading": "Formação",
+      "education.1": "Bacharelado em Publicidade e Marketing",
+      "education.2": "Especializações em Pesquisa de UX, Sistemas de Design e IA aplicada ao Design",
+      "work.heading": "Cases de Destaque",
+      "nda.text": "Devido a acordos de confidencialidade com importantes instituições financeiras e parceiros corporativos, alguns dos meus estudos de caso mais recentes não podem ser divulgados publicamente. Entre em contato para agendar uma conversa privada.",
+      "case.hbo.tag": "Streaming / Entertainment", "case.hbo.title": "HBO GO",
+      "case.hbo.desc": "Pesquisa, benchmarking e testes de usabilidade para evoluir a experiência de streaming.",
+      "case.dolcegusto.tag": "E-commerce / CPG", "case.dolcegusto.title": "Dolce Gusto",
+      "case.dolcegusto.desc": "Redesenho da jornada de compra para reduzir fricção no e-commerce.",
+      "case.hurb.tag": "Travel / Hospitality", "case.hurb.title": "HURB",
+      "case.hurb.desc": "Redesenho da jornada de reservas para reduzir fricção e aumentar a confiança do usuário.",
+      "case.nubank.tag": "Fintech / Banking", "case.nubank.title": "Nubank",
+      "case.nubank.desc": "Central de Ajuda: redesenho do fluxo de suporte dentro do app.",
+      "footer.heading": "Vamos nos conectar",
+      "footer.email.label": "fabiobove78@gmail.com",
+      "footer.phone.label": "+55 11 98551-6079",
+      "footer.linkedin.label": "LinkedIn",
+      "footer.rights": "Todos os direitos reservados.",
+      "case.back": "Voltar",
+      "case.footer.cta": "Vamos conversar sobre este projeto",
+      "case1.page.eyebrow": "Case de produto",
+      "case1.page.title": "Nubank — Central de Ajuda",
+      "case1.page.desc": "Redesenho do fluxo de suporte dentro do app, com foco em reduzir o esforço do cliente para encontrar respostas e abrir chamados.",
+      "hurb.page.eyebrow": "Case de produto",
+      "hurb.page.title": "HURB — Experiência de Reservas",
+      "hurb.page.desc": "Redesenho de pontos-chave da jornada de reservas, com foco em reduzir fricção e aumentar a confiança do usuário.",
+      "dolcegusto.page.eyebrow": "Case de produto",
+      "dolcegusto.page.title": "Dolce Gusto — Jornada de Compra",
+      "dolcegusto.page.desc": "Redesenho de etapas da jornada de e-commerce para melhorar a conversão e a clareza das informações.",
+      "hbo.page.eyebrow": "Case de produto",
+      "hbo.page.title": "HBO GO — Experiência de Streaming",
+      "hbo.page.desc": "Pesquisa, benchmarking e testes de usabilidade para evoluir a experiência de navegação e descoberta de conteúdo no app."
+    },
+    en: {
+      "meta.title": "Fabio Bove — Product Designer & UX Consultant",
+      "nav.about": "About", "nav.work": "Cases", "nav.contact": "Contact",
+      "hero.title": "Hello, I'm Fabio Bove.",
+      "hero.subtitle": "Product Designer & UX Consultant with over 20 years of experience building digital products from discovery to delivery.",
+      "hero.portrait.caption.role": "Product Designer",
+      "hero.portrait.caption.base": "São Paulo, BR",
+      "specialties.heading": "Specialties & Highlights",
+      "specialties.1.label": "UX & UI Design",
+      "specialties.1.body": "User journey mapping, information architecture, advanced Figma prototyping, and usability testing facilitation.",
+      "specialties.2.label": "Design Systems & Scalability",
+      "specialties.2.body": "Building and managing scalable component libraries, accessibility (WCAG), and seamless developer handoff.",
+      "specialties.3.label": "AI in Design Workflow",
+      "specialties.3.body": "Daily use of LLMs and no-code tools to accelerate research, ideation, and MVP development.",
+      "specialties.4.label": "Financial & Banking Expertise",
+      "specialties.4.body": "Deep experience in the banking sector (Mobile Apps, Internet Banking, B2B/B2C).",
+      "specialties.5.label": "Collaborative Delivery",
+      "specialties.5.body": "Working within cross-functional squads aligned with metrics and business goals.",
+      "education.heading": "Education",
+      "education.1": "Bachelor's Degree in Advertising & Marketing",
+      "education.2": "Specializations in UX Research, Design Systems, and AI for Design",
+      "work.heading": "Featured Work",
+      "nda.text": "Due to non-disclosure agreements (NDAs) with major financial institutions and corporate partners, some of my most recent case studies cannot be displayed publicly. Please get in touch for a private walkthrough.",
+      "case.hbo.tag": "Streaming / Entertainment", "case.hbo.title": "HBO GO",
+      "case.hbo.desc": "Research, benchmarking, and usability testing to evolve the streaming experience.",
+      "case.dolcegusto.tag": "E-commerce / CPG", "case.dolcegusto.title": "Dolce Gusto",
+      "case.dolcegusto.desc": "Redesigning the purchase journey to reduce e-commerce friction.",
+      "case.hurb.tag": "Travel / Hospitality", "case.hurb.title": "HURB",
+      "case.hurb.desc": "Redesigning the booking journey to reduce friction and build user trust.",
+      "case.nubank.tag": "Fintech / Banking", "case.nubank.title": "Nubank",
+      "case.nubank.desc": "Support Center: redesigning the in-app help flow.",
+      "footer.heading": "Let's Connect",
+      "footer.email.label": "fabiobove78@gmail.com",
+      "footer.phone.label": "+55 11 98551-6079",
+      "footer.linkedin.label": "LinkedIn",
+      "footer.rights": "All rights reserved.",
+      "case.back": "Back",
+      "case.footer.cta": "Let's talk about this project",
+      "case1.page.eyebrow": "Product case study",
+      "case1.page.title": "Nubank — Support Center",
+      "case1.page.desc": "Redesign of the in-app support flow, focused on reducing the effort it takes customers to find answers and open a request.",
+      "hurb.page.eyebrow": "Product case study",
+      "hurb.page.title": "HURB — Booking Experience",
+      "hurb.page.desc": "Redesign of key moments in the booking journey, focused on reducing friction and building user trust.",
+      "dolcegusto.page.eyebrow": "Product case study",
+      "dolcegusto.page.title": "Dolce Gusto — Purchase Journey",
+      "dolcegusto.page.desc": "Redesign of e-commerce journey steps to improve conversion and information clarity.",
+      "hbo.page.eyebrow": "Product case study",
+      "hbo.page.title": "HBO GO — Streaming Experience",
+      "hbo.page.desc": "Research, benchmarking, and usability testing to evolve navigation and content discovery in the app."
+    }
+  };
+
+  function getSavedLang() {
+    try {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (saved === "pt" || saved === "en") return saved;
+    } catch (e) {}
+    const browserLang = (navigator.language || "pt").toLowerCase();
+    return browserLang.startsWith("pt") ? "pt" : "en";
+  }
+
+  function applyLanguage(lang) {
+    const dict = TRANSLATIONS[lang];
+    if (!dict) return;
+    document.documentElement.setAttribute("lang", lang === "pt" ? "pt-BR" : "en");
+    document.querySelectorAll("[data-i18n]").forEach((el) => {
+      const key = el.getAttribute("data-i18n");
+      if (dict[key] !== undefined) el.textContent = dict[key];
+    });
+    document.querySelectorAll("[data-lang-btn]").forEach((btn) => {
+      btn.setAttribute("aria-current", btn.getAttribute("data-lang-btn") === lang ? "true" : "false");
+    });
+    document.title = dict["meta.title"] || document.title;
+    document.getElementById("page-title").textContent = dict["meta.title"];
+    document.querySelectorAll("[data-src-pt]").forEach((img) => {
+      const src = img.getAttribute(lang === "pt" ? "data-src-pt" : "data-src-en");
+      if (src) img.setAttribute("src", src);
+    });
+    try { localStorage.setItem(STORAGE_KEY, lang); } catch (e) {}
+    window.__fbLang = lang;
+  }
+
+  function routeFromHash() {
+    const h = location.hash.replace("#", "");
+    return CASE_ROUTES.includes(h) ? h : "home";
+  }
+
+  function showView(routeId) {
+    document.querySelectorAll(".view").forEach((v) => {
+      v.classList.toggle("is-active", v.id === "view-" + routeId);
+    });
+    document.body.classList.toggle("is-case", routeId !== "home");
+    window.scrollTo({ top: 0, behavior: "auto" });
+  }
+
+  function handleRoute() {
+    const route = routeFromHash();
+    showView(route);
+    if (route === "home") {
+      const hash = location.hash;
+      if (hash && hash !== "#home") {
+        const id = hash.replace("#", "");
+        setTimeout(() => {
+          const target = document.getElementById(id);
+          if (target) {
+            target.scrollIntoView({ behavior: "smooth" });
+          }
+        }, 50);
+      }
+    }
+  }
+
+  function initScrollspy() {
+    const navLinks = Array.from(document.querySelectorAll('.nav__links a[href^="#"]'));
+    if (!navLinks.length) return;
+    const sections = navLinks.map((l) => document.querySelector(l.getAttribute("href"))).filter(Boolean);
+    if (!sections.length) return;
+    const setActive = (id) => {
+      navLinks.forEach((link) => link.classList.toggle("is-active", link.getAttribute("href") === `#${id}`));
+    };
+    const observer = new IntersectionObserver(
+      (entries) => entries.forEach((entry) => { if (entry.isIntersecting) setActive(entry.target.id); }),
+      { rootMargin: "-45% 0px -50% 0px", threshold: 0 }
+    );
+    sections.forEach((s) => observer.observe(s));
+  }
+
+  function init() {
+    applyLanguage(getSavedLang());
+    handleRoute();
+    initScrollspy();
+    document.addEventListener("click", (event) => {
+      const langBtn = event.target.closest("[data-lang-btn]");
+      if (langBtn) { applyLanguage(langBtn.getAttribute("data-lang-btn")); return; }
+      const brand = event.target.closest("#brand-btn");
+      if (brand) {
+        if (location.hash) history.pushState("", document.title, window.location.pathname + window.location.search);
+        showView("home");
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+    });
+    window.addEventListener("hashchange", handleRoute);
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+})();
+</script>
+
+</body>
+</html>
